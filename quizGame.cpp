@@ -1,59 +1,40 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 using namespace std;
-bool questions(string q, string a, string b, string c, string d, char correct)
+
+bool question(string q, string a, string b, string c, string d, int correct)
 {
-    char userChoice;
-    cout << "\n------------------" << endl;
+    int userChoice;
+    cout << "\n--------------------" << endl;
     cout << q << endl;
-    cout << '\n';
-    cout << " a." << a << " \tb." << b << endl;
-    cout << '\n';
-    cout << " c." << c << " \td." << d << endl;
-    cout << '\n';
-    cout << "Enter your choice (a-d) or 0 to quit :";
+    cout << " 1." << a << " \t2." << b << endl;
+    cout << " 3." << c << " \t4." << d << endl;
+    cout << "Enter your choice (1-4): ";
     cin >> userChoice;
 
     if (userChoice == correct)
     {
-        cout << "Correct answer!" << endl;
+        cout << "Correct!" << endl;
         return true;
     }
-    else if (userChoice == 0)
+    if (userChoice == 0)
     {
-        cout << "Quitting the game!" << endl;
+        cout << "Quiting...You earned points!" << endl;
         return false;
     }
-    else
-    {
-        cout << "Wrong answer!" << endl;
-        return false;
-    }
+    cout << "Wrong! Game Over." << endl;
+    return false;
 }
+
 int main()
 {
-    int totalScore = 0;
-    int pointPerAns = 1000;
     cout << "Welcome to the game!" << endl;
-    // Question 1
-    if (questions("1.Which is the capital of Bangladesh?", "Sylhet", "Dhaka", "Khulna", "Rajshahi", 'b'))
-    {
-        totalScore += pointPerAns;
-    }
-    else
-    {
-        cout << "Your score is :" << totalScore << endl;
+    if (!question("Which is the capital of Bangladesh ?", "Ddghj", "Dhaka", "sylet", "sylet", 2))
         return 0;
-    }
-    // Question 2
-    cout << "Your score is :" << totalScore << endl;
-    if (questions("2.Which is the largest city in Bangladesh?", "Sylhet", "Dhaka", "Khulna", "Rajshahi", 'b'))
-    {
-        totalScore += pointPerAns;
-    }
-    else
-    {
-        cout << "Your score is :" << totalScore << endl;
+    if (!question("Which is the capital of Bangladesh ?", "Ddghj", "Dhaka", "sylet", "sylet", 3))
         return 0;
-    }
+    if (!question("Which is the capital of Bangladesh ?", "Ddghj", "Dhaka", "sylet", "sylet", 4))
+        return 0;
+    cout << "Amazing! You won the game!" << endl;
+    return 0;
 }
