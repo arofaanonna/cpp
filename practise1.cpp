@@ -10,9 +10,14 @@ int main()
     vec.push_back(45);
     cout << "after push back size of vector :" << vec.size() << endl;
     vec.pop_back();
-    for (int value : vec)
-    {
-        cout << "element :" << value << endl;
-    }
+    // for (int value : vec)
+    //{
+    //  cout << "element :" << value << endl;
+    //}
+    vec.front();
+    cout << "first element :" << vec.front() << endl;
+    vec.back();
+    cout << "last element :" << vec.back() << endl;
+    cout << " element :" << vec.at(3) << endl;
     return 0;
 }
