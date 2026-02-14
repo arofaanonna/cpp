@@ -4,6 +4,13 @@
 using namespace std;
 int main()
 {
-    vector<int> vec = {3, 4, 5};
-    cout << vec[1] + vec[2] << endl;
+    vector<float> num = {4.5, 65.7, 7.7};
+    cout << "size of vector :" << num.size() << endl;
+    num.push_back(45.8);
+    cout << "after push back size of vector :" << num.size() << endl;
+    for (float value : num)
+    {
+        cout << "element :" << value << endl;
+    }
+    return 0;
 }
