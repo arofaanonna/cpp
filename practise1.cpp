@@ -1,23 +1,43 @@
 #include <iostream>
-#include <vector>
 using namespace std;
+
 int main()
 {
-    vector<int> vec = {4, 5, 6, 7};
-    cout << "size of vector :" << vec.size() << endl;
-    vec.push_back(25);
-    vec.push_back(85);
-    vec.push_back(45);
-    cout << "after push back size of vector :" << vec.size() << endl;
-    vec.pop_back();
-    // for (int value : vec)
-    //{
-    //  cout << "element :" << value << endl;
-    //}
-    vec.front();
-    cout << "first element :" << vec.front() << endl;
-    vec.back();
-    cout << "last element :" << vec.back() << endl;
-    cout << " element :" << vec.at(3) << endl;
+    double num1, num2;
+    char op;
+
+    cout << "Enter first number: ";
+    cin >> num1;
+    cout << "Enter operator (+, -, *, /, %): ";
+    cin >> op;
+    cout << "Enter second number: ";
+    cin >> num2;
+
+    switch (op)
+    {
+    case '+':
+        cout << "Result: " << num1 + num2 << endl;
+        break;
+    case '-':
+        cout << "Result: " << num1 - num2 << endl;
+        break;
+    case '*':
+        cout << "Result: " << num1 * num2 << endl;
+        break;
+    case '/':
+        if (num2 != 0)
+            cout << "Result: " << num1 / num2 << endl;
+        else
+            cout << "Error: Division by zero!" << endl;
+        break;
+    case '%':
+        if ((int)num2 != 0)
+            cout << "Result: " << (int)num1 % (int)num2 << endl;
+        else
+            cout << "Error: Division by zero!" << endl;
+        break;
+    default:
+        cout << "Invalid operator!" << endl;
+    }
     return 0;
 }
