@@ -26,11 +26,13 @@ int main(){
     cout<<"\n\n";
     cout<<"-----delete element-----"<<endl;
     int target2, mark2=0, index2;
-    cout<<"Enter the number you want to delete :";
+    cout<<"Enter the number you want to delete or 100 for quite:";
     cin>>target2;
-        // i<5,0,1,2,3,4
     for(int i=0; i<n; i++)
     {
+        if(target2 == 100){
+            cout<<""
+        }
         if(arr[i]==target2)
         {
             index2 = i;
@@ -40,9 +42,7 @@ int main(){
     }
     if(mark2==1)
     {
-        // i=3, i<5-1, 0-3,
-        // i =0, -,1,2,3,4 i++
-        // i =0, i+1
+        
         for(int i= index2; i<n-1; i++)
         {
             arr[i]=arr[i+1];
