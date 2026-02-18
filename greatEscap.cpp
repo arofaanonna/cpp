@@ -4,14 +4,31 @@ using namespace std;
 
 int main()
 {
-    int a;
-    if (!(cin >> a))
+    // read all integers from stdin so we can be flexible with online judges
+    vector<int> inputs;
+    int x;
+    while (cin >> x)
+        inputs.push_back(x);
+
+    if (inputs.empty())
         return 0;
 
-    for (int k = 0; k < a; k++)
+    size_t idx = 0;
+    int testCount;
+    // if the first number matches the number of following pairs, treat it as count
+    if (inputs.size() >= 3 && inputs[0] == (int)((inputs.size() - 1) / 2)) {
+        testCount = inputs[0];
+        idx = 1;
+    } else {
+        // otherwise process every pair until EOF
+        testCount = (int)(inputs.size() / 2);
+    }
+
+    for (int k = 0; k < testCount && idx + 1 < inputs.size(); k++)
     {
-        int n, l;
-        cin >> n >> l;
+        int n = inputs[idx++];
+        int l = inputs[idx++];
+
         if (n <= 0 || l <= 0)
         {
             cout << "Invalid input\n";
@@ -48,7 +65,7 @@ int main()
             }
         }
 
-        if (k < a - 1)
+        if (k < testCount - 1)
             cout << endl; // blank line between test cases
     }
 
