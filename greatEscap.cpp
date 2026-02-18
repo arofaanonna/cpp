@@ -1,59 +1,56 @@
-#include<iostream>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 int main()
 {
     int a;
-    cin >> a;
-    
-    for(int k = 0; k < a; k++)
+    if (!(cin >> a))
+        return 0;
+
+    for (int k = 0; k < a; k++)
     {
         int n, l;
-        cout << "Enter how many person and step: ";
         cin >> n >> l;
-        
-        int arr[1000] = {0};  // Use fixed size or dynamic allocation
-        int alive = n;
-        
-        // Initialize: 1 means alive, 0 means eliminated
-        for(int i = 0; i < n; i++)
+        if (n <= 0 || l <= 0)
         {
-            arr[i] = 1;
+            cout << "Invalid input\n";
+            continue;
         }
-        cout << "Person initialized\n";
 
-        int count = 0;
-        int index = 0;
-        
-        // Eliminate until only l people remain
-        while(alive > l)
+        vector<int> arr(n, 1); // 1 means alive, 0 means eliminated
+        int alive = n;
+        int index = 0;  // current position in circle
+        int count1 = 0; // step counter
+
+        // eliminate until only l people remain
+        while (alive > l)
         {
-            if(arr[index] == 1)  // Person is alive
+            if (arr[index] == 1)
             {
-                count++;
-                if(count == l)   // Every l-th person gets eliminated
+                count1++;
+                if (count1 == l)
                 {
                     arr[index] = 0;
                     alive--;
-                    count = 0;
-                    cout << "Eliminated person at position " << index + 1 << endl;
+                    count1 = 0;
                 }
             }
-            index = (index + 1) % n;  // Circular movement
+            index = (index + 1) % n; // wrap around
         }
 
-        cout << "While Closed\n";
-
-        // Print survivors
-        cout << "Survivors: ";
-        for(int i = 0; i < n; i++)
+        // print survivors
+        for (int i = 0; i < n; i++)
         {
-            if(arr[i] == 1)
+            if (arr[i] == 1)
             {
-                cout << i + 1 << " ";  // Convert to 1-based for output
+                cout << "Survivor: " << (i + 1) << endl;
             }
         }
-        cout << endl << endl;
+
+        if (k < a - 1)
+            cout << endl; // blank line between test cases
     }
+
     return 0;
 }
