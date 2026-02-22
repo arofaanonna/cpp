@@ -22,8 +22,8 @@ int main()
     for(int j=i+1; j<n; j++ )
     {
        if(arr[j]<arr[smallestIndex])
-       smallestIndex = jla;
+       smallestIndex = j;
     }
   }
-  swap(arr[i],arr[smallestIndex]);
+  swap(arr[j],arr[smallestIndex]);
 }
