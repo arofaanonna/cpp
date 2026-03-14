@@ -2,6 +2,15 @@
 #include<vector>
 using namespace std;
 vector <int>block;
+// LIbrary
+// class sell{
+
+// }
+// class purchase{
+// Anonna
+// }
+//class colorse
+
 class stack{
     public:
     void push(int val) {
@@ -19,6 +28,7 @@ class stack{
         return block.empty();
     }
 };
+
 int main()
 {
    stack s;
