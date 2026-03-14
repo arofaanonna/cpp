@@ -7,7 +7,7 @@ vector <int>block;
 
 // }
 // class purchase{
-
+// Anonna
 // }
 //class colorse
 
